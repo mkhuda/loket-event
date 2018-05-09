@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  username: postgres
+  password: loketpass
+
+development:
+  <<: *default
+  host: localhost
+  port: 5433
+  database: loket_rails_dev
+
+test: &test
+  <<: *default
+  host: localhost
+  port: 5433
+  database: loket_rails_test
+
+production:
+  <<: *default
+  host: localhost
+  port: 5433
+  database: loket_rails
