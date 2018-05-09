@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'twitter'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

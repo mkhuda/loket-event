@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   root 'home#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # twitter auth
+  get 'twitter_auth', to: redirect('/auth/twitter'), as: 'twitter_auth'
+  get '/auth/twitter/callback', to: 'user#twitter_auth'
+  match "/auth/failure", to: 'user#failure',  via: [:get, :post]
 end
