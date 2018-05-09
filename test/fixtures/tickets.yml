@@ -1,0 +1,30 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+event_one_regular:
+  id: 1
+  event_id: 1
+  ticket_name: Regular
+  ticket_detail: Ticket for Regular
+  ticket_price: IDR 50000
+
+event_one_special:
+  id: 2
+  event_id: 1
+  ticket_name: Special
+  ticket_detail: Ticket for Special
+  ticket_price: IDR 100000
+
+event_two_regular:
+  id: 3
+  event_id: 2
+  ticket_name: Regular
+  ticket_detail: Ticket for Regular
+  ticket_price: IDR 50000
+
+event_two_special:
+  id: 4
+  event_id: 2
+  ticket_name: Special
+  ticket_detail: Ticket for Special
+  ticket_price: IDR 100000
+

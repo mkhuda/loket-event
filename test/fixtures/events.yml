@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+event_one:
+  id: 1
+  user_id: 1
+  event_detail: This is detail of the event created by User 1
+event_two: 
+  id: 2
+  user_id: 2
+  event_detail: This is detail of the event created by User 2
+event_three:
+  id: 3
+  user_id: 1
+  event_detail: This is details of the another event created by User 1
+
+
