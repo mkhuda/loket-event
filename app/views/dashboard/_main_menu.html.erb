@@ -20,7 +20,9 @@
       User
     </p>
     <ul class="menu-list">
-      <li><a>Logout</a></li>
+      <li>
+        <%= link_to "Logout".html_safe, logout_path, method: :delete %>
+      </li>
     </ul>
   </ul>
 </aside>
