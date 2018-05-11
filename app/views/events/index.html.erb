@@ -3,7 +3,7 @@
   <% @event.each do |e| %>
     <div class="columns">
       <div class="column is-8">
-        <%= e.name %>
+        <a href="<%= event_url(e.id) %>"><%= e.name %></a>
       </div>
       <div class="column">
         <a href="#" class="button is-dark">Edit</a>

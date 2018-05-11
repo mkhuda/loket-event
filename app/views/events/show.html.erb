@@ -1,0 +1,16 @@
+<% if flash[:success] %>
+<div class="notification is-info">
+  <button class="delete"></button>
+  <%= flash[:success] %>
+</div>
+<% end %>
+<h1 class="title">Event Detail</h1>
+<p class="is-size-3 has-text-weight-light">
+  <i class="fa fa-bullhorn"></i> <%= @event.name %>
+</p>
+<p class="is-size-4.5 has-text-weight-light has-background-light">
+  <%= @event.event_detail %>
+</p>
+<p>
+  <%= Date.parse(@event.event_start_date.to_s).strftime("%A, %d %B %Y") %>
+</p>
