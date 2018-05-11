@@ -21,4 +21,12 @@ class EventTest < ActiveSupport::TestCase
   test "find all event by User ID 1" do
     assert_not_nil User.find(1).events, "Events should be not nil according user fixtures"
   end
+
+  test "find published events" do
+    assert_equal 2, Event.where("publish = true").count, "Published events should be 2"
+  end
+
+  test "find unpublished events" do
+    assert_equal 1, Event.where("publish = false").count, "Published events should be 1"
+  end
 end
