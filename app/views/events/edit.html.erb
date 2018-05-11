@@ -1,0 +1,43 @@
+<h2 class="title">Edit Event</h2>
+<%= form_for @event, url: {action: "update"} do |f| %>
+  <div class="field">
+    <label class="label">Event Name</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :name, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-bullhorn"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Event Details</label>
+    <div class="control">
+      <%= f.text_area :event_detail, class: "textarea" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Event Start Date</label>
+      <div class="control">
+        <div class="select">
+          <div class="field is-grouped">
+          <%= f.date_select :event_start_date,
+            {
+              :start_year => 2018, 
+              :end_year => 2020
+            },
+            selected: @event.event_start_date.to_date,
+            default: @event.event_start_date.to_date
+          %>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" class="button is-link" value="Save"/>
+    </div>
+  </div>
+<% end %>
