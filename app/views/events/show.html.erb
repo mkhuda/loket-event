@@ -4,13 +4,51 @@
   <%= flash[:success] %>
 </div>
 <% end %>
-<h1 class="title">Event Detail</h1>
-<p class="is-size-3 has-text-weight-light">
-  <i class="fa fa-bullhorn"></i> <%= @event.name %>
-</p>
-<p class="is-size-4.5 has-text-weight-light has-background-light">
-  <%= @event.event_detail %>
-</p>
-<p>
-  <%= Date.parse(@event.event_start_date.to_s).strftime("%A, %d %B %Y") %>
-</p>
+<div class="content">
+  
+  <p class="is-size-6 has-text-grey-lighter">Event Detail</p>
+
+  <h1 class="is-size-3 has-text-weight-light">
+    <%= @event.name %>
+  </h1>
+  <p class="has-text-grey">
+    <i class="fa fa-calendar"></i> <%= Date.parse(@event.event_start_date.to_s).strftime("%A, %d %B %Y") %>
+  </p>
+  <blockquote>
+    <%= @event.event_detail %>
+  </blockquote>
+  
+  <hr/>
+  <p class="has-text-grey">
+    Tickets
+  </p>
+  <% if @event_tickets.count >= 1 %>
+    <% @event_tickets.each do |t| %>
+      <div class="box has-background-grey-light has-text-white">
+        <div class="content">
+          <p>
+            <strong><%= t.ticket_name %></strong> <small>(Price)</small> <small><%= t.ticket_price %></small>
+            <br>
+            <%= t.ticket_detail %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    <div class="box">
+      <a href="<%= new_event_ticket_url(@event.id) %>" class="button">Add More Ticket</a>
+    </div>
+  <% else %>
+    <div class="box">
+      <a href="<%= new_event_ticket_url(@event.id) %>" class="button">Add Ticket</a>
+    </div>
+  <% end %>
+
+
+  <hr/>
+  <p class="has-text-grey">
+    Location
+  </p>
+  <div class="box">
+    <a href="" class="button">Set Location</a>
+  </div>
+</div>
