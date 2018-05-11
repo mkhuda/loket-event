@@ -1,0 +1,39 @@
+<h2 class="title">Add new Ticket</h2>
+<%= form_for @ticket, url: {action: "create"} do |f| %>
+  <div class="field">
+    <label class="label">Ticket Name</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :ticket_name, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-certificate"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Ticket Detail</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :ticket_detail, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-certificate"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Ticket Price</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :ticket_price, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-credit-card"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" class="button is-link" value="Create Event"/>
+    </div>
+  </div>
+<% end %>
+
