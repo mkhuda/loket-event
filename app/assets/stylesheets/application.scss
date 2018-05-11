@@ -14,3 +14,14 @@
 @import "*";
 @import "bulma";
 @import "font-awesome";
+
+/*
+ * For notification only purpose
+ */
+.notification > button.delete {
+  border: none;
+}
+
+.is-hidden {
+  display: none;
+}
