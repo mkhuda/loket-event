@@ -1,3 +1,10 @@
+<nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="<%= root_url %>">Homepage</a></li>
+    <li class="is-active"><a aria-current="page" href="#">Events</a></li>
+  </ul>
+</nav>
+
 <% @events.each do |event| %>
   <div class="columns">
     <div class="column is-4">
@@ -18,7 +25,7 @@
       <section class="section">
         <div class="content">
           <h1 class="is-size-3 has-text-weight-light">
-            <%= event.name %>
+            <a href="<%= show_public_event_path(event.id) %>"><%= event.name %></a>
           </h1>
         </div>
       </section>

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # public event
   get 'events', to: 'public_event#index', as: 'public_event'
-  get 'events/:id', to: 'public_event#show'
+  get 'event/:id', to: 'public_event#show', as: 'show_public_event'
 
   # dashboard
   get 'dashboard', to: 'events#index'
