@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container public-container">
+      <div class="buttons has-addons is-centered">
+        <% if logged_in? %>
+          <a href="<%= dashboard_url %>" class="button is-info">
+            <span class="icon">
+              <i class="fa fa-bullhorn"></i>
+            </span>
+            <span>Go to Event Management</span>
+          </a>
+        <% else %>
+          <a href="<%= twitter_auth_url %>" class="button is-info">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+            <span>Login to Create an Event</span>
+          </a>
+        <% end %>
+        <span class="button" disabled>or</span>
+        <a class="button is-dark" href="<%= root_url %>">Go to Homepage</a>
+      </div>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>
+

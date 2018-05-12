@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   # logout
   delete 'logout', to: 'user#logout'
 
+  # public event
+  get 'events', to: 'public_event#index', as: 'public_event'
+  get 'events/:id', to: 'public_event#show'
+
   # dashboard
   get 'dashboard', to: 'events#index'
 
@@ -20,5 +24,8 @@ Rails.application.routes.draw do
       resources :locations
     end
   end
+
+  # post to twitter
+  post 'post_to_twitter/:id', to: 'events#post_to_twitter', as: 'post_to_twitter'
 
 end
