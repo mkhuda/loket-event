@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   # resources
   resources :events do
     resources :tickets
+    resources :locations
   end
-  resources :locations
 
 end
