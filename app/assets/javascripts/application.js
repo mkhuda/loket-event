@@ -14,3 +14,11 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function(){
+  document.querySelectorAll("#delete_button").forEach(function(item){
+    item.addEventListener('click', function() {
+      console.log(item.getAttribute("event_id"));
+    });
+  })
+});

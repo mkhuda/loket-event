@@ -46,7 +46,7 @@ class EventsController < ApplicationController
 		if @event
       redirect_to event_path(params[:id]), :flash => { :success => "Your event has been edited" }
 		else
-			render 'new'
+			render 'edit'
 		end
   end
 

@@ -12,7 +12,15 @@
     <%= @event.name %>
   </h1>
   <p class="has-text-grey">
-    <i class="fa fa-calendar"></i> <%= Date.parse(@event.event_start_date.to_s).strftime("%A, %d %B %Y") %>
+    <i class="fa fa-calendar"></i> <%= Date.parse(@event.event_start_date.to_s).strftime("%A, %d %B %Y") %> <br>
+    <% if !@event.event_location.nil? %>
+      <i class="fa fa-map"></i> <%= @event.event_location.location.name %><br>
+      <a href="<%= edit_event_location_url(@event.id, @event.event_location.location.id) %>" class="button">Edit Location</a>
+      <a href="<%= edit_event_url(@event.id) %>" class="button is-warning">Edit Event</a>
+    <% else %>
+      <a href="<%= new_event_location_url(@event.id) %>" class="button">Set Location</a>
+      <a href="<%= edit_event_url(@event.id) %>" class="button is-warning">Edit Event</a>
+    <% end %>
   </p>
   <blockquote>
     <%= @event.event_detail %>
@@ -30,25 +38,25 @@
             <strong><%= t.ticket_name %></strong> <small>(Price)</small> <small><%= t.ticket_price %></small>
             <br>
             <%= t.ticket_detail %>
+            <br>
+            <a href="<%= edit_event_ticket_url(@event.id, t.id) %>" class="button">
+              <span class="icon is-small">
+                <i class="fa fa-edit"></i>
+              </span>
+            </a>
+            <a class="button is-danger">
+              <span class="icon is-small">
+                <i class="fa fa-trash"></i>
+              </span>
+            </a>
           </p>
         </div>
       </div>
     <% end %>
-    <div class="box">
       <a href="<%= new_event_ticket_url(@event.id) %>" class="button">Add More Ticket</a>
-    </div>
   <% else %>
     <div class="box">
       <a href="<%= new_event_ticket_url(@event.id) %>" class="button">Add Ticket</a>
     </div>
   <% end %>
-
-
-  <hr/>
-  <p class="has-text-grey">
-    Location
-  </p>
-  <div class="box">
-    <a href="" class="button">Set Location</a>
-  </div>
 </div>

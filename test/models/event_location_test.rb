@@ -22,4 +22,13 @@ class EventLocationTest < ActiveSupport::TestCase
     user_add_location = Location.create(name: "New Location")
     assert user_add_event.create_event_location(location_id: user_add_location.id).save, "Location saved to event"
   end
+
+  test "user create new event and set the location and location description" do
+    user_add_event = User.find(1).events.create(name: "Event test", event_detail: "Test event details")
+    user_add_location = Location.create(name: "New Location")
+    create_location = user_add_event.create_event_location(location_id: user_add_location.id,
+                                                           description: "Location Description")
+    assert create_location.save, "Location with description should be saved to event"
+  end
+
 end

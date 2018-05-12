@@ -1,19 +1,20 @@
 <h2 class="title">Your Events</h2>
-<% if @event.count >= 1 %>
-  <% @event.each do |e| %>
-    <div class="columns">
-      <div class="column is-8">
-        <a href="<%= event_url(e.id) %>"><%= e.name %></a>
+<div id="event_content">
+  <% if @event.count >= 1 %>
+    <% @event.each do |e| %>
+      <div class="columns">
+        <div class="column is-8">
+          <a class="is-size-6" href="<%= event_url(e.id) %>"><%= e.name %></a>
+        </div>
+        <div class="column">
+          <a href="#" class="button is-small is-dark">Edit</a>
+          <button id="delete_button" event_id="<%= e.id %>" class="button is-small is-danger">Delete</button>
+        </div>
       </div>
-      <div class="column">
-        <a href="#" class="button is-dark">Edit</a>
-        <a href="#" class="button is-danger">Delete</a>
-      </div>
-    </div>
-    <hr/>
+      <hr/>
+    <% end %>
+  <% else %>
+    You haven't create an Event.<br/>
+    <a href="<%= new_event_url %>" class="button is-info">Create Event</a>
   <% end %>
-<% else %>
-  You haven't create an Event.<br/>
-  <a href="<%= new_event_url %>" class="button is-info">Create Event</a>
-<% end %>
-
+</div>
