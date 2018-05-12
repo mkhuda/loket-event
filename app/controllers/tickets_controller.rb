@@ -41,6 +41,17 @@ class TicketsController < ApplicationController
     end
   end
 
+  def destroy
+    @ticket = current_user.events.find(params[:event_id]).tickets.find(params[:id])
+    if @ticket.destroy
+      redirect_to event_path(params[:event_id]),
+        :flash => { :success => "Your ticket has been deleted" }
+    else
+      redirect_to event_path(params[:event_id]),
+        :flash => { :error => "Ooops. Error when deleting your ticket. Try again?" }
+    end
+  end
+
   private
 
     def ticket_params
