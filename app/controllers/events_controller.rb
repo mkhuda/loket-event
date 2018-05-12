@@ -40,6 +40,7 @@ class EventsController < ApplicationController
     if @delete
       redirect_to dashboard_path
     else
+      redirect_to dashboard_path
     end
   end
 
