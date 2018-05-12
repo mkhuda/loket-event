@@ -1,19 +1,6 @@
-<% if flash[:success] %>
-<div class="notification is-info">
-  <button class="delete delete_notification"></button>
-  <%= flash[:success] %>
-</div>
-<% end %>
-<% if flash[:error] %>
-<div class="notification is-danger">
-  <button class="delete delete_notification"></button>
-  <%= flash[:error] %>
-</div>
-<% end %>
+<%= render "/shared/flash" %>
+<%= render "/events/breadcrumb_all", breadcrumb_var: @event.name %>
 <div class="content">
-  
-  <p class="is-size-6 has-text-grey-lighter">Event Detail</p>
-
   <h1 class="is-size-3 has-text-weight-light">
     <%= @event.name %>
   </h1>
@@ -44,7 +31,7 @@
       <div class="box">
         <div class="content">
           <p>
-            <strong><%= t.ticket_name %></strong> <small>(Price)</small> <small><%= t.ticket_price %></small>
+            <strong><%= t.ticket_name %></strong> <small><%= t.ticket_price %></small>
             <br>
             <%= t.ticket_detail %>
             <br>

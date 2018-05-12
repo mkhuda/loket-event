@@ -1,3 +1,5 @@
+<%= render "/events/breadcrumb_form", breadcrumb_var: Event.find(params[:event_id]).name, breadcrumb_var_id: params[:event_id] %>
+
 <h2 class="title">Set Location</h2>
 <%= form_for @location, url: {action: "create"} do |f| %>
   <div class="field">
