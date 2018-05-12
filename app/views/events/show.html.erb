@@ -17,9 +17,11 @@
       <i class="fa fa-map"></i> <%= @event.event_location.location.name %><br>
       <a href="<%= edit_event_location_url(@event.id, @event.event_location.location.id) %>" class="button is-small">Edit Location</a>
       <a href="<%= edit_event_url(@event.id) %>" class="button is-warning is-small">Edit Event</a>
+      <a href="<%= event_url(@event.id) %>" data-method="delete" class="button is-small is-danger">Delete Event</a>
     <% else %>
       <a href="<%= new_event_location_url(@event.id) %>" class="button is-small">Set Location</a>
       <a href="<%= edit_event_url(@event.id) %>" class="button is-warning is-small">Edit Event</a>
+      <a href="<%= event_url(@event.id) %>" data-method="delete" class="button is-small is-danger">Delete Event</a>
     <% end %>
   </p>
   <blockquote>

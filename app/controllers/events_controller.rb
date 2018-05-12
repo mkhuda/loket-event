@@ -35,6 +35,14 @@ class EventsController < ApplicationController
     @event = current_user.events.find(params[:id])
   end
 
+  def destroy
+    @delete = current_user.events.find(params[:id]).destroy
+    if @delete
+      redirect_to dashboard_path
+    else
+    end
+  end
+
   def update
     @event_params = event_params
     @start_date = @event_params.select {|k, _| k.include? "event_start_date"}.values.join('-').to_date

@@ -1,12 +1,21 @@
 <div class="container home-container">
   <h2 class="title has-text-centered">Welcome to Event Management</h2>
   <div class="buttons has-addons is-centered">
-    <a href="<%= twitter_auth_url %>" class="button is-info">
-      <span class="icon">
-        <i class="fa fa-twitter"></i>
-      </span>
-      <span>Login to Create an Event</span>
-    </a>
+    <% if logged_in? %>
+      <a href="<%= dashboard_url %>" class="button is-info">
+        <span class="icon">
+          <i class="fa fa-bullhorn"></i>
+        </span>
+        <span>Go to Event Management</span>
+      </a>
+    <% else %>
+      <a href="<%= twitter_auth_url %>" class="button is-info">
+        <span class="icon">
+          <i class="fa fa-twitter"></i>
+        </span>
+        <span>Login to Create an Event</span>
+      </a>
+    <% end %>
     <span class="button" disabled>or</span>
     <a class="button is-dark">See all Events</a>
   </div>
