@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'events#index'
 
   # resources
-  resources :events do
-    resources :tickets
-    resources :locations
+  scope '/dashboard' do
+    resources :events do
+      resources :tickets
+      resources :locations
+    end
   end
 
 end
