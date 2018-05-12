@@ -30,5 +30,9 @@ class EventLocationTest < ActiveSupport::TestCase
                                                            description: "Location Description")
     assert create_location.save, "Location with description should be saved to event"
   end
-
+  
+  test "delete event location" do
+    event_location = User.find(1).events.find(1).event_location
+    assert event_location.destroy, "Event location should deleted"
+  end
 end
