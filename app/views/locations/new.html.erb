@@ -1,0 +1,29 @@
+<h2 class="title">Set Location</h2>
+<%= form_for @location, url: {action: "create"} do |f| %>
+  <div class="field">
+    <label class="label">Location Name</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :name, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-map"></i>
+      </span>
+    </div>
+  </div>
+  
+  <div class="field">
+    <label class="label">Location Description</label>
+    <div class="control has-icons-left">
+      <%= f.text_field :description, class: "input" %>
+      <span class="icon is-small is-left">
+        <i class="fa fa-info"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" class="button is-link" value="Set Location"/>
+    </div>
+  </div>
+<% end %>
+
