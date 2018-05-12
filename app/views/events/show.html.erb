@@ -15,11 +15,11 @@
     <i class="fa fa-calendar"></i> <%= Date.parse(@event.event_start_date.to_s).strftime("%A, %d %B %Y") %> <br>
     <% if !@event.event_location.nil? %>
       <i class="fa fa-map"></i> <%= @event.event_location.location.name %><br>
-      <a href="<%= edit_event_location_url(@event.id, @event.event_location.location.id) %>" class="button">Edit Location</a>
-      <a href="<%= edit_event_url(@event.id) %>" class="button is-warning">Edit Event</a>
+      <a href="<%= edit_event_location_url(@event.id, @event.event_location.location.id) %>" class="button is-small">Edit Location</a>
+      <a href="<%= edit_event_url(@event.id) %>" class="button is-warning is-small">Edit Event</a>
     <% else %>
-      <a href="<%= new_event_location_url(@event.id) %>" class="button">Set Location</a>
-      <a href="<%= edit_event_url(@event.id) %>" class="button is-warning">Edit Event</a>
+      <a href="<%= new_event_location_url(@event.id) %>" class="button is-small">Set Location</a>
+      <a href="<%= edit_event_url(@event.id) %>" class="button is-warning is-small">Edit Event</a>
     <% end %>
   </p>
   <blockquote>
@@ -32,20 +32,20 @@
   </p>
   <% if @event_tickets.count >= 1 %>
     <% @event_tickets.each do |t| %>
-      <div class="box has-background-grey-light has-text-white">
+      <div class="box">
         <div class="content">
           <p>
             <strong><%= t.ticket_name %></strong> <small>(Price)</small> <small><%= t.ticket_price %></small>
             <br>
             <%= t.ticket_detail %>
             <br>
-            <a href="<%= edit_event_ticket_url(@event.id, t.id) %>" class="button">
-              <span class="icon is-small">
+            <a href="<%= edit_event_ticket_url(@event.id, t.id) %>" class="button is-small">
+              <span class="icon">
                 <i class="fa fa-edit"></i>
               </span>
             </a>
-            <a class="button is-danger">
-              <span class="icon is-small">
+            <a class="button is-danger is-small">
+              <span class="icon">
                 <i class="fa fa-trash"></i>
               </span>
             </a>
