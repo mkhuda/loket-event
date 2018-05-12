@@ -16,9 +16,9 @@
 //= require_tree .
 
 document.addEventListener("turbolinks:load", function(){
-  document.querySelectorAll("#delete_button").forEach(function(item){
+  document.querySelectorAll(".delete_notification").forEach(function(item){
     item.addEventListener('click', function() {
-      console.log(item.getAttribute("event_id"));
+      document.querySelector(".notification").style.display = "none";
     });
   })
 });
