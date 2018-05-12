@@ -59,6 +59,16 @@ class EventsController < ApplicationController
 		end
   end
 
+  def post_to_twitter
+    tweet = event_post_to_twitter(current_user.events.find(params[:id]))
+    if tweet
+      tweet_url = "https://twitter.com/#{current_user.twitter_username}/status/#{tweet.id}"
+      redirect_to event_path(params[:id]), :flash => { :success => "Your event has been twitted, see: #{tweet_url}" }
+    else
+      redirect_to event_path(params[:id]), :flash => { :error => "Ooops. something wrong" }
+    end
+  end
+
 	private
 		def event_params
 			params.require(:event).permit(:name, :event_detail, :event_start_date, :event_end_date)
