@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Loket Event</title>
+    <title>Loket Event - <%= yield(:title) %></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<%= yield(:description).present? ? yield(:description) : 'Event Management with Twitter Auth'%>">
+    <meta property="og:description"
+    content="<%= yield(:description).present? ? yield(:description) : 'Event Management with Twitter Auth'%>" />
+    <meta property="og:url"    content="<%= request.original_url %>" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:site_name" content="Loket Event" />
+    <meta property="og:title" content="Loket Event - <%= yield(:title) %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +21,6 @@
 
   <body>
     <%= yield %>
+    <%= render '/layouts/footer' %>
   </body>
 </html>
