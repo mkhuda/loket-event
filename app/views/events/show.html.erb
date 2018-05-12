@@ -21,6 +21,7 @@
     <% if !@event.event_location.nil? %>
       <i class="fa fa-map"></i> <%= @event.event_location.location.name %>
       <a href="<%= edit_event_location_url(@event.id, @event.event_location.location.id) %>" class="button is-small">Edit Location</a>
+      <a href="<%= event_location_url(@event.id, @event.event_location.location.id) %>" data-method="delete" class="button is-small is-danger" title="delete location"><i class="fa fa-trash"></i></a>
     <% else %>
       <i class="fa fa-map"></i> <a href="<%= new_event_location_url(@event.id) %>" class="button is-small">Set Location</a>
     <% end %>

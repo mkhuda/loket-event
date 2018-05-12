@@ -8,10 +8,10 @@ class LocationsController < ApplicationController
 
   def create
     @lp = location_params
-    @create_master_location = Location.create(name: @lp[:name])
-    if @create_master_location
+    @search_location = Location.search_location(@lp[:name])
+    if @search_location
       @create_event_location = current_user.events.find(params[:event_id]).create_event_location(
-        location_id: @create_master_location.id,
+        location_id: @search_location.id,
         description: @lp[:description]
       ).save
       redirect_to event_path(params[:event_id]),
@@ -29,11 +29,11 @@ class LocationsController < ApplicationController
   def update
     @default_location = current_user.events.find(params[:event_id])
     @lp = update_location_params
-    @create_master_location = Location.create(name: @lp[:name])
-    if @create_master_location
+    @search_location = Location.search_location(@lp[:name])
+    if @search_location
       @create_event_location = current_user.events.find(params[:event_id])
         .event_location.update_attributes(
-        location_id: @create_master_location.id,
+        location_id: @search_location.id,
         description: @lp[:description]
       )
       redirect_to event_path(params[:event_id]),
@@ -41,7 +41,17 @@ class LocationsController < ApplicationController
     else
       render 'edit'
     end
+  end
 
+  def destroy
+    @event_location = current_user.events.find(params[:event_id]).event_location
+    if @event_location.destroy
+      redirect_to event_path(params[:event_id]),
+        :flash => { :success => "Location has been deleted" }
+    else
+      redirect_to event_path(params[:event_id]),
+        :flash => { :error => "Ooops. Something wrong when deleting location!" }
+    end
   end
 
   private
