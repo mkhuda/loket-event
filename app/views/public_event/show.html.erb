@@ -12,13 +12,17 @@
     <div class="column is-4">
       <section class="section">
         <aside class="menu">
-          <p>
+          <p class="menu-label">
           <% unless !logged_in? %>
             <% if current_user.id == @event.user.id %>
               <a href="<%= event_url(@event.id) %>" class="button is-small is-warning">
                 Edit This Event
               </a>
+            <% else %>
+              <i class="fa fa-user"></i> <%= @event.user.name %>
             <% end %>
+          <% else %>
+            <i class="fa fa-user"></i> <%= @event.user.name %>
           <% end %>
           </p>
           <p class="menu-label">
