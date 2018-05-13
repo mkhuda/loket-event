@@ -1,4 +1,7 @@
-<%= render "/events/breadcrumb_form", breadcrumb_var: Event.find(params[:event_id]).name, breadcrumb_var_id: params[:event_id] %>
+<%= render "/events/breadcrumb_form",
+  breadcrumb_var: Event.find(params[:event_id]).name,
+  breadcrumb_var_id: params[:event_id],
+  breadcrumb_var_current: "Edit ticket" %>
 
 <h2 class="title">Edit Ticket</h2>
 <%= form_for @ticket, url: {action: "update"} do |f| %>

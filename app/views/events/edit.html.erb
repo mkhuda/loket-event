@@ -1,4 +1,4 @@
-<%= render "/events/breadcrumb_form", breadcrumb_var: @event.name, breadcrumb_var_id: @event.id %>
+<%= render "/events/breadcrumb_form", breadcrumb_var: @event.name, breadcrumb_var_id: @event.id, breadcrumb_var_current: "Edit" %>
 
 <h2 class="title">Edit Event</h2>
 <%= form_for @event, url: {action: "update"} do |f| %>
