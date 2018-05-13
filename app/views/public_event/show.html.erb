@@ -32,6 +32,8 @@
           <p class="menu-label">
             <i class="fa fa-map"></i> 
             <%= @event.event_location.nil? ? '' : @event.event_location.location.name %>
+            <br>
+            <%= @event.event_location.nil? ? '' : @event.event_location.description %>
           </p>
           <% if @event.tickets.count >= 1 %>
             <% @event.tickets.each do |t| %>
