@@ -7,7 +7,7 @@
           <a class="is-size-6" href="<%= event_url(e.id) %>"><%= e.name %></a>
         </div>
         <div class="column">
-          <a href="#" class="button is-small is-dark">Edit</a>
+          <a href="<%= edit_event_url(e.id) %>" class="button is-small is-dark">Edit</a>
           <a href="<%= event_url(e.id) %>" data-method="delete" class="button is-small is-danger">Delete</a>
         </div>
       </div>
