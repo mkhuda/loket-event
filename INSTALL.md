@@ -1,4 +1,4 @@
-# Instalasi
+# Instalasi (Indonesia)
 ## 1. Instalasi `rbenv` (Jika belum)
 Project test ini menggunakan Ruby versi 2.4.0 dan menggunakan `rbenv` sebagai default utama Ruby Environment untuk memudahkan pengelolaan project-project berbasis Ruby, step instalasi :
 
