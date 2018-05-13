@@ -5,4 +5,10 @@ class PublicEventControllerTest < ActionDispatch::IntegrationTest
     get public_event_url
     assert_response :success
   end
+
+  test "should get event detail of public event" do
+    get show_public_event_url(1)
+    assert_response :success
+  end
+
 end
