@@ -4,15 +4,18 @@ event_one:
   user_id: 1
   event_detail: This is detail of the event created by User 1
   publish: true
+  event_start_date: 2018-06-10
 event_two: 
   id: 2
   user_id: 2
   event_detail: This is detail of the event created by User 2
   publish: true
+  event_start_date: 2018-10-10
 event_three:
   id: 3
   user_id: 1
   event_detail: This is details of the another event created by User 1
   publish: false
+  event_start_date: 2018-09-01
 
 
