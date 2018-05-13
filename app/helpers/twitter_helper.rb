@@ -8,7 +8,7 @@ module TwitterHelper
       config.access_token_secret = current_user.twitter_secret
     end
     event_name = event.name
-    event_url = "#{root_url}/event/" + event.id.to_s
+    event_url = "#{root_url}event/" + event.id.to_s
     tweet.update("Please see my #{event_name} here: #{event_url}")
   end
 
