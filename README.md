@@ -8,7 +8,6 @@
 - Rbenv
 - Ruby 2.4.0
 - Rails 5.2.0
-- Minitest
 
 ### Installation
 - See [INSTALL.md](https://github.com/mkhuda/loket-event/blob/master/INSTALL.md)
